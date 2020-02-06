@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:Notes/database/moordatabase.dart';
 import 'package:Notes/model/note_data.dart';
-import 'package:Notes/utils/string_helper.dart';
 import 'package:Notes/widgets/note_text_view.dart';
 import 'package:Notes/widgets/title_text_view.dart';
 import 'package:flutter/material.dart';
@@ -38,14 +36,15 @@ class _AddNoteState extends State<AddNote> {
   Timer _timer;
   var buttonsOpacity = 0.0;
 
-  _AddNoteState() {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     _timer = Timer(const Duration(milliseconds: 500), () {
       setState(() {
         buttonsOpacity = 1.0;
       });
     });
   }
-
 
   @override
   void dispose() {
@@ -69,11 +68,12 @@ class _AddNoteState extends State<AddNote> {
           child: Stack(children: [
             Hero(
               tag: "heroContainer:${widget._note.id}",
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.0)
+              child: AnimatedContainer(
+                decoration: BoxDecoration(
+                  color: color ?? widget._note.color,
+                  borderRadius: BorderRadius.circular(16.0)
                 ),
-                color: color ?? widget._note.color,
+              duration: Duration(milliseconds: 300),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(

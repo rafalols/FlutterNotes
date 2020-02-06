@@ -32,7 +32,6 @@ class NoteData {
       );
 
   static final List colorMap = [
-    Color(0xFF111111),
     Colors.grey[900],
     Colors.grey[850],
     Colors.indigo[900],
@@ -44,6 +43,7 @@ class NoteData {
     Colors.red[900],
     Colors.amber[900],
     Colors.brown[900],
+    Color(0xFF2E1713),
   ];
 
 }
