@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.amber,
         ),
         routes: {
-          '/': (context) => HomePage(title: 'Color notes'),
+          '/': (context) => GridPage(title: 'Color notes'),
           '/addNote': (context) => AddNotePage(),
         },
       ),
