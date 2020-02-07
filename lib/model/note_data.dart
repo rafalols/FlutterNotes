@@ -16,7 +16,7 @@ class NoteData {
     id = entity.id;
     title = entity.title;
     note = entity.note;
-    if (entity.color != null) {
+    if (entity.color != null && entity.color >= 0 && entity.color < colorMap.length) {
       color = colorMap[entity.color];
     } else {
       color = colorMap[0];

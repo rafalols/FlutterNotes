@@ -75,8 +75,7 @@ class _GridPageState extends State<GridPage> {
         }
         List<NoteData> notes = snapshot.data
                 ?.map((entity) => NoteData.fromEntity(entity))
-                ?.toList() ??
-            [];
+                ?.toList() ?? [];
         return ListView(
           children: notes.map((note) => NoteListTile(note)).toList(),
         );
@@ -96,8 +95,7 @@ class _GridPageState extends State<GridPage> {
         }
         List<NoteData> notes = snapshot.data
                 ?.map((entity) => NoteData.fromEntity(entity))
-                ?.toList() ??
-            [];
+                ?.toList() ?? [];
         return GridView.count(
             padding: EdgeInsets.all(16.0),
             crossAxisCount: 2,
