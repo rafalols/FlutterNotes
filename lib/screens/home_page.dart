@@ -107,7 +107,6 @@ class _GridPageState extends State<GridPage> {
   }
 
   _changeLayout() {
-    print("Lollll");
     setState(() {
       useGrid = !useGrid;
       menuIcon = useGrid ? Icons.list : Icons.apps;

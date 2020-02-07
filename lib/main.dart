@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return Provider(
       create: (_) => MyDatabase(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Flutter notes',
         theme: ThemeData(
           backgroundColor: Colors.black,
           primarySwatch: Colors.amber,
