@@ -48,7 +48,7 @@ class NoteGridView extends StatelessWidget {
               Visibility(
                 visible: _note.note != null && _note.note.isNotEmpty,
                 child: Text(_note.note ?? "",
-                  maxLines: 7,
+                  maxLines: 6,
                   style: TextStyle(
                     color: Colors.white54,
                     fontSize: 12,

@@ -14,9 +14,17 @@ class GridPage extends StatefulWidget {
   _GridPageState createState() => _GridPageState();
 }
 
-class _GridPageState extends State<GridPage> {
+class _GridPageState extends State<GridPage> with SingleTickerProviderStateMixin   {
   bool useGrid = true;
-  IconData menuIcon = Icons.apps;
+
+  AnimationController menuIconAnimController;
+
+  @override
+  void initState() {
+    super.initState();
+    menuIconAnimController =
+        AnimationController(duration: const Duration(milliseconds: 500), vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +35,16 @@ class _GridPageState extends State<GridPage> {
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
-          IconButton(
-            icon: Icon(menuIcon),
-            onPressed: () => _changeLayout(),
+          GestureDetector(
+            onTap: () { _changeLayout(); },
+            child: Container(
+              padding: EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
+              alignment: Alignment.center,
+              child: AnimatedIcon(
+                icon: AnimatedIcons.list_view,
+                progress: menuIconAnimController,
+              ),
+            ),
           ),
         ],
       ),
@@ -109,7 +124,9 @@ class _GridPageState extends State<GridPage> {
   _changeLayout() {
     setState(() {
       useGrid = !useGrid;
-      menuIcon = useGrid ? Icons.list : Icons.apps;
+      useGrid
+          ? menuIconAnimController.reverse()
+          : menuIconAnimController.forward();
     });
   }
 }
