@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           '/': (context) => GridPage(title: 'Color notes'),
-          '/addNote': (context) => AddNotePage(),
+          AddNotePage.routeName: (context) => AddNotePage(),
         },
       ),
     );

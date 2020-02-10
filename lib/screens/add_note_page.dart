@@ -12,10 +12,7 @@ class AddNotePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final NoteData note = ModalRoute
-        .of(context)
-        .settings
-        .arguments;
+    final NoteData note = ModalRoute.of(context).settings.arguments;
     return AddNote(note);
   }
 }

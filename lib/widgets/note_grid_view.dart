@@ -16,7 +16,7 @@ class NoteGridView extends StatelessWidget {
         Hero(
           tag: 'heroContainer:${_note.id}',
           child: Container(
-            constraints: new BoxConstraints.expand(),
+            constraints: BoxConstraints.expand(),
             decoration: BoxDecoration(
               color: _note.color,
               borderRadius: BorderRadius.circular(16.0),
